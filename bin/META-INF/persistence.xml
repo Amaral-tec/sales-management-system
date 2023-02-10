@@ -1,29 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
 
-	<persistence-unit name="JPA">
+	<persistence-unit name="ProductionDB">
 
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<!-- <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider> -->
+
 		<class>br.com.amaral.domain.Customer</class>
 		<class>br.com.amaral.domain.Product</class>
 		<class>br.com.amaral.domain.QuantityOfProducts</class>
 		<class>br.com.amaral.DAO.SaleDAO</class>
 
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /> <!-- DB Driver -->
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:15432/sales_test" /> <!-- BD Mane -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:15432/ProductionDB" /> <!-- BD Mane -->
 			<property name="javax.persistence.jdbc.user" value="postgres" /> <!-- DB User -->
 			<property name="javax.persistence.jdbc.password" value="108278" /> <!-- DB Password -->
 
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" /> <!-- DB Dialect -->
-			<property name="hibernate.hbm2ddl.auto" value="update"/> <!-- create / create-drop / update -->
+			<property name="hibernate.hbm2ddl.auto" value="update" /> <!-- create / create-drop / update -->
 
 			<property name="hibernate.show_sql" value="true" /> <!-- Show SQL in console -->
 			<property name="hibernate.format_sql" value="true" /> <!-- Show SQL formatted -->
 		</properties>
 
 	</persistence-unit>
+	
+	<persistence-unit name="TestDB">
+
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+		<class>br.com.amaral.integration_test.CustomerDAOIntegrationTest</class>
+		<class>br.com.amaral.integration_test.ProductDAOIntegrationTest</class>
+		<class>br.com.amaral.integration_test.SaleDAOIntegrationTest</class>
+
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /> <!-- DB Driver -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:15432/TestDB" /> <!-- BD Mane -->
+			<property name="javax.persistence.jdbc.user" value="postgres" /> <!-- DB User -->
+			<property name="javax.persistence.jdbc.password" value="108278" /> <!-- DB Password -->
+
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" /> <!-- DB Dialect -->
+			<property name="hibernate.hbm2ddl.auto" value="update" /> <!-- create / create-drop / update -->
+
+			<property name="hibernate.show_sql" value="true" /> <!-- Show SQL in console -->
+			<property name="hibernate.format_sql" value="true" /> <!-- Show SQL formatted -->
+		</properties>
+
+	</persistence-unit>
+
 
 </persistence>

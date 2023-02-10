@@ -45,7 +45,6 @@ public class Sale implements Persistent {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sale_seq")
 	@SequenceGenerator(name = "sale_seq", sequenceName = "sq_sale", initialValue = 1, allocationSize = 1)
-	@Column(name = "ID", nullable = false, unique = true)
 	private Long id;
 
 	@Column(name = "CODE", nullable = false, unique = true)

@@ -23,7 +23,7 @@ import br.com.amaral.dao.IProductDAO;
 import br.com.amaral.dao.ISaleDAO;
 import br.com.amaral.dao.ProductDAO;
 import br.com.amaral.dao.SaleDAO;
-import br.com.amaral.dao.generics.jdbc.ConnectionFactory;
+import br.com.amaral.dao.generics.jdbc.ConnectionFactoryTest;
 import br.com.amaral.domain.Customer;
 import br.com.amaral.domain.Product;
 import br.com.amaral.domain.Sale;
@@ -344,7 +344,7 @@ public class SaleDAOIntegrationTest {
 
 	protected Connection getConnection() throws DAOException {
 		try {
-			return ConnectionFactory.getConnection();
+			return ConnectionFactoryTest.getConnection();
 		} catch (SQLException e) {
 			throw new DAOException("ERRO ABRINDO CONEXAO COM BANCO DE DADOS ", e);
 		}

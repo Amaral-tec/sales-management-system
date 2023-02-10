@@ -9,11 +9,11 @@ import java.sql.SQLException;
  *
  */
 
-public class ConnectionFactory {
+public class ConnectionFactoryTest {
 
 	private static Connection connection;
 
-	private ConnectionFactory(Connection connection) {
+	private ConnectionFactoryTest(Connection connection) {
 
 	}
 
@@ -35,7 +35,7 @@ public class ConnectionFactory {
 //			String con = "jdbc:postgresql://" + Config.server + "/" + Config.database + ",";
 //
 			return DriverManager.getConnection(
-					"jdbc:postgresql://localhost:15432/ProductionDB", "postgres", "108278");
+					"jdbc:postgresql://localhost:15432/TestDB", "postgres", "108278");
 			//con, Config.user, Config.password);
 
 		} catch (SQLException e) {
